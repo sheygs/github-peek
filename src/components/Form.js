@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../index.css';
 
 class Form extends Component {
  state = {
@@ -21,14 +22,16 @@ class Form extends Component {
  render(){
    return (
      <form onSubmit={this.handleSubmit}>
-      <input 
-         type="text" 
-         placeholder="gitHub username" 
-         required
-         onChange={this.handleOnChange}
-         value={this.state.username}
-      /> 
-      <button>Add Card</button>
+       <div className="form-group">
+          <input 
+            type="text" 
+            placeholder="search user..." 
+            required
+            onChange={this.handleOnChange}
+            value={this.state.username}
+          /> 
+          <button>Add User</button>
+       </div>
      </form>
    )
  }

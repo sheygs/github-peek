@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import CardList from './components/CardList';
 import Form from './components/Form';
-//import testData from './data/testData';
 
 class App extends Component {
   constructor(){
@@ -18,11 +17,20 @@ class App extends Component {
     }));
   }
 
+  addStyles() {
+    return {
+      textAlign: 'center', 
+      fontSize: '1.5rem', 
+      fontWeight: 'bold', 
+      color: '#ddd'
+    }
+  }
+
   render(){
-    const styles = { textAlign: 'center', fontSize: '1.5rem', fontWeight: 'bold'}
+    const { title } = this.props;
     return (
      <div className="App"> 
-      <h2 style={styles}>{this.props.title}</h2>
+      <h1 style={this.addStyles()}>{title}</h1>
       <Form onSubmit={this.addProfile}/>
       <CardList profiles={this.state.profiles}/>
      </div>

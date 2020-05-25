@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 const Avatar = props => {
  return (
@@ -9,5 +9,10 @@ const Avatar = props => {
    />
  )
 };
+
+Avatar.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired
+}
 
 export default Avatar;
