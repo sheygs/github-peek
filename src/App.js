@@ -1,5 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import React, { Component } from 'react';
+import axios from 'axios';
 import CardList from './components/CardList';
 import Form from './components/Form';
 
@@ -11,10 +12,15 @@ class App extends Component {
     }
   }
 
-  addProfile = profile => {
-    this.setState(previousState => ({
-       profiles: [...previousState.profiles, profile]
-    }));
+  addProfile = async profile => {
+    try {
+      const user = await axios.get(`https://api.github.com/users/${profile}`);
+        this.setState(previousState => ({
+          profiles: [...previousState.profiles, user.data]
+        }));
+    } catch({ message }) {
+      console.error(message);
+    } 
   }
 
   addStyles() {
@@ -31,7 +37,7 @@ class App extends Component {
     return (
      <div className="App"> 
       <h1 style={this.addStyles()}>{title}</h1>
-      <Form onSubmit={this.addProfile}/>
+      <Form addProfile={this.addProfile}/>
       <CardList profiles={this.state.profiles}/>
      </div>
     );

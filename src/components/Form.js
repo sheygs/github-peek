@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 import React, { Component } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import '../index.css';
 
 class Form extends Component {
@@ -9,9 +9,8 @@ class Form extends Component {
  }
 
  handleSubmit = async e => {
-  e.preventDefault();
-  const res = await axios.get(`https://api.github.com/users/${this.state.username}`);
-   this.props.onSubmit(res.data);
+   e.preventDefault();
+   this.props.addProfile(this.state.username);
    this.setState({ username: ''});
  }
 
@@ -35,6 +34,10 @@ class Form extends Component {
      </form>
    )
  }
+}
+
+Form.propTypes = {
+  addProfile: PropTypes.func.isRequired
 }
 
 export default Form;
