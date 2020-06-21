@@ -15,8 +15,8 @@ class Form extends Component {
    this.setState({ username: ''});
  }
 
- handleOnChange = e => {
-   this.setState({ username: e.target.value })
+ handleOnChange = ({ target: { name, value } }) => {
+   this.setState({ [name]: value })
  }
 
  render(){
@@ -24,7 +24,8 @@ class Form extends Component {
      <form onSubmit={this.handleSubmit}>
        <div className="form-group">
           <input 
-            type="text" 
+            type="text"
+            name="username" 
             placeholder="search user..." 
             required
             onChange={this.handleOnChange}
