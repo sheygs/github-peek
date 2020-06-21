@@ -23,14 +23,11 @@ class Card extends Component {
   }
 }
 
-Card.defaultProps = {
-  company: 'me'
-}
 
 Card.propTypes = {
   avatar_url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  company: PropTypes.string.isRequired
+  company: PropTypes.string
 }
 
 export default Card;

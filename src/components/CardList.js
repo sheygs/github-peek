@@ -6,7 +6,7 @@ import Card from './Card';
 const CardList = ({ profiles }) => {
  return (
     <div style={{display: 'flex', flexWrap: 'wrap'}}>
-      { profiles.map(profile => <Card key={profile.id} {...profile}/>) }
+      { profiles.filter(profile => profile.name && profile.avatar_url).map(profile => <Card key={profile.id} {...profile}/>) }
     </div>
  )
 }; 

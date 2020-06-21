@@ -12,7 +12,8 @@ const Info = ({ name, company }) => {
 
 Info.propTypes = {
    name: PropTypes.string.isRequired,
-   company: PropTypes.string.isRequired
+   company: PropTypes.string
 }
+
 
 export default Info;
