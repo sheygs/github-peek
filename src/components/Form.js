@@ -8,9 +8,10 @@ class Form extends Component {
   username: ''
  }
 
- handleSubmit = async e => {
+ handleSubmit = e => {
+   const { addProfile } = this.props;
    e.preventDefault();
-   this.props.addProfile(this.state.username);
+   addProfile(this.state.username);
    this.setState({ username: ''});
  }
 
